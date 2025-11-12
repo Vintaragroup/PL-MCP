@@ -47,7 +47,7 @@ Test the MCP server is accessible:
 
 ```bash
 # Quick test - should show all 4 tools working
-docker exec -it frontend-mcp-server python test_server.py
+docker exec -it frontend-mcp-server python tests/test_server.py
 
 # Interactive demo with the Python client
 python3 mcp_client.py

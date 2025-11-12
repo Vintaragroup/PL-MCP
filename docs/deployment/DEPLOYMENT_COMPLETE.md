@@ -24,7 +24,7 @@ The MCP server provides 4 specialized frontend development tools:
 
 All tools have been tested and are working correctly:
 ```bash
-docker exec -it frontend-mcp-server python test_server.py
+docker exec -it frontend-mcp-server python tests/test_server.py
 ```
 
 ## 🚀 Usage Instructions
@@ -59,7 +59,7 @@ python -m frontend_mcp_server.main
 ### Tool Testing
 ```bash
 # Test all tools
-docker exec -it frontend-mcp-server python test_server.py
+docker exec -it frontend-mcp-server python tests/test_server.py
 
 # Interactive shell in container
 docker exec -it frontend-mcp-server bash
@@ -81,7 +81,10 @@ docker exec -it frontend-mcp-server bash
 ├── docker-compose.yml          # Container orchestration
 ├── Dockerfile                  # Container definition
 ├── requirements.txt           # Python dependencies
-└── test_server.py            # Tool testing script
+├── tests/
+│   ├── test_server.py         # Tool testing script
+│   ├── test_api_tools.py      # API tools tests
+│   └── test_learning_tools.py # Learning tools tests
 ```
 
 ## 🔧 Technical Details

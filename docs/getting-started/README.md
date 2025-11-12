@@ -552,13 +552,13 @@ python3 -m pytest --cov=src tests/
 
 ```bash
 # Test server connectivity
-python3 test_server.py
+python3 tests/test_server.py
 
 # Test API tools
-python3 test_api_tools.py
+python3 tests/test_api_tools.py
 
 # Test learning tools
-python3 test_learning_tools.py
+python3 tests/test_learning_tools.py
 ```
 
 ## 🚀 Performance

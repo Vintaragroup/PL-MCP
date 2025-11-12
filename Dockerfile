@@ -21,9 +21,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY src/ ./src/
-COPY test_server.py ./
-COPY test_api_tools.py ./
-COPY test_learning_tools.py ./
+COPY tests/ ./tests/
 
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash app \
