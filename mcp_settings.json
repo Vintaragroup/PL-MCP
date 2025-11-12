@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "frontend-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run", 
+        "--rm", 
+        "-i",
+        "--network", "frontend-mcp-network",
+        "frontend-mcp-server", 
+        "python", "-m", "src.frontend_mcp_server.main"
+      ],
+      "env": {}
+    }
+  }
+}

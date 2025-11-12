@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "github.copilot.enable": {
+      "*": true,
+      "yaml": false,
+      "plaintext": false,
+      "markdown": true
+    },
+    "github.copilot.advanced": {
+      "debug.overrideEngine": "codex"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "github.copilot",
+      "github.copilot-chat"
+    ]
+  }
+}

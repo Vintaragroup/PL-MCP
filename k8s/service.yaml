@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-mcp-server-service
+  labels:
+    app: frontend-mcp-server
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  selector:
+    app: frontend-mcp-server
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-mcp-server-config
+  labels:
+    app: frontend-mcp-server
+data:
+  server.config.json: |
+    {
+      "server_name": "frontend-mcp-server",
+      "version": "1.0.0",
+      "tools": {
+        "react": true,
+        "tailwind": true,
+        "typescript": true,
+        "react_native": true,
+        "react_flow": true,
+        "package_management": true
+      },
+      "logging": {
+        "level": "INFO",
+        "format": "json"
+      }
+    }

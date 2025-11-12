@@ -1,0 +1,123 @@
+{
+  "name": "frontend-mcp-integration",
+  "displayName": "Frontend MCP Integration",
+  "description": "VS Code settings for Frontend MCP Server integration",
+  "version": "1.0.0",
+  "settings": {
+    "github.copilot.enable": {
+      "scope": "window",
+      "type": "object",
+      "default": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": true,
+        "typescript": true,
+        "typescriptreact": true,
+        "javascript": true,
+        "javascriptreact": true
+      },
+      "description": "Enable GitHub Copilot for frontend development with MCP"
+    },
+    "github.copilot.advanced": {
+      "scope": "window",
+      "type": "object",
+      "default": {
+        "debug.overrideEngine": "codex",
+        "inlineSuggestEnable": true
+      },
+      "description": "Advanced GitHub Copilot settings for MCP integration"
+    },
+    "files.associations": {
+      "scope": "window",
+      "type": "object", 
+      "default": {
+        "*.tsx": "typescriptreact",
+        "*.ts": "typescript",
+        "*.jsx": "javascriptreact",
+        "*.js": "javascript"
+      },
+      "description": "File associations for frontend development"
+    },
+    "emmet.includeLanguages": {
+      "scope": "window",
+      "type": "object",
+      "default": {
+        "typescriptreact": "html",
+        "javascriptreact": "html"
+      },
+      "description": "Emmet support for React components"
+    },
+    "typescript.preferences.includePackageJsonAutoImports": {
+      "scope": "window",
+      "type": "string",
+      "default": "on",
+      "description": "Auto-import from package.json dependencies"
+    },
+    "editor.formatOnSave": {
+      "scope": "window", 
+      "type": "boolean",
+      "default": true,
+      "description": "Format code on save"
+    },
+    "editor.codeActionsOnSave": {
+      "scope": "window",
+      "type": "object",
+      "default": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "explicit"
+      },
+      "description": "Code actions to run on save"
+    },
+    "tailwindCSS.includeLanguages": {
+      "scope": "window",
+      "type": "object",
+      "default": {
+        "typescript": "html",
+        "typescriptreact": "html",
+        "javascript": "html",
+        "javascriptreact": "html"
+      },
+      "description": "Tailwind CSS language support"
+    }
+  },
+  "commands": [
+    {
+      "command": "frontend-mcp.start",
+      "title": "Start Frontend MCP Server",
+      "category": "MCP"
+    },
+    {
+      "command": "frontend-mcp.stop", 
+      "title": "Stop Frontend MCP Server",
+      "category": "MCP"
+    },
+    {
+      "command": "frontend-mcp.status",
+      "title": "Check MCP Server Status",
+      "category": "MCP"
+    },
+    {
+      "command": "frontend-mcp.addToProject",
+      "title": "Add MCP to Current Project",
+      "category": "MCP"
+    }
+  ],
+  "keybindings": [
+    {
+      "command": "frontend-mcp.start",
+      "key": "ctrl+shift+m s",
+      "mac": "cmd+shift+m s"
+    },
+    {
+      "command": "frontend-mcp.stop",
+      "key": "ctrl+shift+m x",
+      "mac": "cmd+shift+m x"
+    },
+    {
+      "command": "frontend-mcp.status",
+      "key": "ctrl+shift+m ?",
+      "mac": "cmd+shift+m ?"
+    }
+  ]
+}

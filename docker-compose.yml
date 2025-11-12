@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  frontend-mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: frontend-mcp-server
+    restart: unless-stopped
+    environment:
+      - PYTHONPATH=/app/src
+      - MCP_SERVER_NAME=frontend-mcp-server
+      - MCP_SERVER_VERSION=1.0.0
+    volumes:
+      # Mount for logs (optional)
+      - ./logs:/app/logs
+      # Mount for configuration (optional)
+      - ./config:/app/config
+    # MCP servers use stdio, so keep container alive for testing
+    command: >
+      sh -c "echo 'Frontend MCP Server Container Ready!' && 
+             echo 'MCP Server tools available for testing' &&
+             echo 'Test with: docker exec -it frontend-mcp-server python test_server.py' &&
+             tail -f /dev/null"
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "python", "-c", "import mcp; print('MCP library available')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a reverse proxy if using HTTP variant
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: frontend-mcp-nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #   depends_on:
+  #     - frontend-mcp-server
+  #   restart: unless-stopped
+
+# Optional: Create networks for better isolation
+networks:
+  default:
+    name: frontend-mcp-network

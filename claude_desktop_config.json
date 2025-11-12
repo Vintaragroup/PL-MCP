@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "frontend-mcp-server": {
+      "command": "docker",
+      "args": [
+        "exec",
+        "-i",
+        "frontend-mcp-server",
+        "python",
+        "-m",
+        "frontend_mcp_server.main"
+      ],
+      "env": {
+        "PYTHONPATH": "/app/src"
+      }
+    }
+  }
+}
