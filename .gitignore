@@ -73,3 +73,20 @@ config/secrets.json
 # Temporary files
 *.tmp
 *.temp
+
+# Giga AI
+.giga/
+
+# Node modules
+node_modules/
+
+# IDE session/cache
+.vscode/settings.json
+*.sublime-workspace
+
+# OS cache
+.cache/
+
+# Python environment artifacts
+*.pyc
+.ipynb_checkpoints/
